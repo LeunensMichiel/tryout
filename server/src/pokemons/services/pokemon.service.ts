@@ -14,8 +14,4 @@ export class PokemonService {
         return this.pokemons;
     }
 
-    // TODO finish this endpoint
-    // findOne(id: string): PokemonDto {
-    // return ...
-    // }
 }
