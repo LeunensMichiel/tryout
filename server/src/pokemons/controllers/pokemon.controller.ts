@@ -10,9 +10,4 @@ export class PokemonController {
     findAll(): PokemonDto[] {
         return this.pokemonService.findAll();
     }
-
-    // @Get(':id')
-    // findOne(@Param('id') id: string): PokemonDto {
-    //     return this.pokemonService.findOne(id);
-    // }
 }
