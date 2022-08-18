@@ -13,5 +13,4 @@ export class PokemonService {
     findAll(): PokemonDto[] {
         return this.pokemons;
     }
-
 }

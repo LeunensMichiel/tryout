@@ -1,6 +1,6 @@
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 import React from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { PokemonDetail } from "./pokemons/pokemon.detail";
 import { PokemonList } from "./pokemons/pokemon.list";
 
@@ -8,14 +8,10 @@ function App() {
     return (
         <Router>
             <div>
-                <Switch>
-                    <Route exact path="/">
-                        <PokemonList />
-                    </Route>
-                    <Route exact path="/:id">
-                        <PokemonDetail />
-                    </Route>
-                </Switch>
+                <Routes>
+                    <Route path="/" element={<PokemonList />} />
+                    <Route path="/:id" element={<PokemonDetail />} />
+                </Routes>
             </div>
         </Router>
     );
