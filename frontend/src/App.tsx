@@ -1,8 +1,8 @@
 import 'antd/dist/antd.min.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { PokemonDetail } from './pokemons/pokemon.detail';
-import { PokemonList } from './pokemons/pokemon.list';
+import { PokemonDetail } from './pokemons';
+import { PokemonList } from './pokemons';
 
 function App() {
   return (

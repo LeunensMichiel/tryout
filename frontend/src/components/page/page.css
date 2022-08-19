@@ -1,5 +1,6 @@
 .layout {
-  /* background-color: transparent; */
+  background: url('/public/pattern.svg');
+  background-size: auto;
   height: 100%;
 }
 

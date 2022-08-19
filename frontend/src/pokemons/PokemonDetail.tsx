@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { useParams } from "react-router-dom";
-import { Page } from "../components/page";
+import { FC } from 'react';
+import { useParams } from 'react-router-dom';
+import { Page } from '../components';
 
 type RouteProps = {
   id: string;

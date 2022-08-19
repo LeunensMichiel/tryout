@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { Page } from '../components/page';
+import { Page } from '../components';
 import { API_URL } from '../config';
 import { Pokemon } from '../models';
 
