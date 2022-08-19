@@ -1,7 +1,6 @@
-import { Breadcrumb, Progress, Spin } from 'antd';
-import { FC, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { Breadcrumb, Button, Progress, Spin } from 'antd';
+import { FC, useCallback, useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Page } from '../components';
 import { API_URL } from '../config';
 import { Pokemon, PokemonBase } from '../models';
@@ -14,10 +13,43 @@ type RouteProps = {
 
 export const PokemonDetail: FC = () => {
   const { id } = useParams<RouteProps>();
+  const navigate = useNavigate();
 
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const removePokemon = useCallback(async () => {
+    const confirmAction = confirm('Are you sure to remove this pokemon?');
+    if (!confirmAction) {
+      return;
+    }
+    try {
+      setLoading(true);
+      const response = await fetch(`${API_URL}/pokemons/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Could not delete pokemon`);
+      }
+
+      const pokemon = await response.json();
+      setPokemon(pokemon);
+      setError(null);
+      navigate('/');
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      }
+      setPokemon(null);
+    } finally {
+      setLoading(false);
+    }
+  }, [id, navigate]);
 
   useEffect(() => {
     const getPokemons = async () => {
@@ -108,6 +140,16 @@ export const PokemonDetail: FC = () => {
                   </span>
                 </div>
               ))}
+          </div>
+          <div className="buttons">
+            <Button
+              size="large"
+              danger
+              onClick={removePokemon}
+              loading={loading}
+            >
+              DELETE
+            </Button>
           </div>
         </div>
       </div>

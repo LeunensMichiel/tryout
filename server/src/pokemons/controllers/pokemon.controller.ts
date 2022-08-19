@@ -33,7 +33,11 @@ export class PokemonController {
 
     @Delete(':id')
     @ApiOperation({ summary: 'Remove a pokemon' })
-    removeMon(@Param('id') id: string) {
-        return this.pokemonService.deleteMon;
+    public removeMon(@Param('id') id: string) {
+        const idAsNumber = Number(id);
+        if (!idAsNumber) {
+            throw new Error('Could not cast Pokemon ID to number');
+        }
+        return this.pokemonService.deleteMon(idAsNumber);
     }
 }
