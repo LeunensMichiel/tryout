@@ -97,6 +97,7 @@ export const PokemonDetail: FC = () => {
                 <div key={base} className="stat">
                   <span className="base">{base}</span>
                   <Progress
+                    strokeColor="#ffcb05"
                     percent={
                       (pokemon.base[base as keyof PokemonBase] / 221) * 100
                     }
