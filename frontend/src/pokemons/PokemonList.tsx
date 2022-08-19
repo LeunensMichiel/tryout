@@ -1,4 +1,6 @@
+import { Skeleton, Space } from 'antd';
 import { FC, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Page } from '../components';
 import { API_URL } from '../config';
 import { Pokemon } from '../models';
@@ -35,12 +37,49 @@ export const PokemonList: FC = () => {
     getPokemons();
   }, []);
 
+  if (error) {
+    return (
+      <Page>
+        <p>{error}</p>
+      </Page>
+    );
+  }
+
   return (
     <Page>
       <div className="list">
-        {pokemons.map((pokemon) => (
-          <Card key={pokemon.id} pokemon={pokemon} />
-        ))}
+        {loading ? (
+          <>
+            <Space direction="vertical">
+              <Skeleton.Image active />
+              <Skeleton.Input active />
+            </Space>
+            <Space direction="vertical">
+              <Skeleton.Image active />
+              <Skeleton.Input active />
+            </Space>
+            <Space direction="vertical">
+              <Skeleton.Image active />
+              <Skeleton.Input active />
+            </Space>
+            <Space direction="vertical">
+              <Skeleton.Image active />
+              <Skeleton.Input active />
+            </Space>
+            <Space direction="vertical">
+              <Skeleton.Image active />
+              <Skeleton.Input active />
+            </Space>
+          </>
+        ) : (
+          <>
+            {pokemons.map((pokemon) => (
+              <Link key={pokemon.id} to={`/${pokemon.id}`}>
+                <Card pokemon={pokemon} />
+              </Link>
+            ))}
+          </>
+        )}
       </div>
     </Page>
   );
