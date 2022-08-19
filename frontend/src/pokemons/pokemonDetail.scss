@@ -1,12 +1,23 @@
 .detail__container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 5rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
 
   img {
     width: 100%;
+    max-height: 15rem;
     object-fit: contain;
     object-position: center;
+  }
+
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+
+    img {
+      max-height: unset;
+    }
   }
 }
 
@@ -24,9 +35,13 @@
 }
 
 .pokemon__detail-name {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #494949;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 5rem;
+  }
 }
 
 .pokemon__detail-nr {
