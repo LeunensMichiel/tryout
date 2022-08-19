@@ -1,0 +1,47 @@
+.detail__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 2rem;
+}
+
+.detail__item {
+  display: grid;
+  gap: 0.5rem;
+  background-color: #f5f5f58b;
+  padding: 2rem 2rem;
+  border-radius: 2rem;
+}
+
+.pokemon__detail-name {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #494949;
+}
+
+.pokemon__detail-nr {
+  font-weight: 500;
+  font-size: 2rem;
+  color: #404040;
+  line-height: 1;
+}
+
+.stat {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 100px 1fr auto;
+}
+
+.stat__value {
+  font-weight: 700;
+}

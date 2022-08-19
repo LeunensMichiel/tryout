@@ -13,4 +13,8 @@ export class PokemonService {
     findAll(): PokemonDto[] {
         return this.pokemons;
     }
+
+    findOne(id: number): PokemonDto {
+        return this.pokemons.find((pkm) => pkm.id === id);
+    }
 }
