@@ -22,6 +22,7 @@ export const Page: FC<Props> = ({ children }) => {
               alt="logo"
             />
           </Link>
+          <Link to="/create">Create pokémon</Link>
         </nav>
       </Header>
       <Content style={{ height: '100%' }} className="container--page">

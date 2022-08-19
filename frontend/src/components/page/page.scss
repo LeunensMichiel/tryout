@@ -14,6 +14,22 @@
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffcb05;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 }
 
 .container--page {

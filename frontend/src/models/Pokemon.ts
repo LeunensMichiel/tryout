@@ -13,3 +13,18 @@ export type Pokemon = {
   type: string[];
   base: PokemonBase;
 };
+
+export type PokemonInput = {
+  name: string;
+  type: string[];
+  base: PokemonBaseInput;
+};
+
+export type PokemonBaseInput = {
+  HP: number;
+  Attack: number;
+  Defense: number;
+  SpAttack: number;
+  SpDefense: number;
+  Speed: number;
+};
