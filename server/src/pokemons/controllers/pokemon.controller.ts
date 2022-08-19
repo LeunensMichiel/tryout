@@ -1,6 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { PokemonDto } from '../dto/pokemon.dto';
+import { CreatePokemonDto, PokemonDto } from '../dto/pokemon.dto';
 import { PokemonService } from '../services';
 
 @Controller('pokemons')
@@ -23,5 +23,17 @@ export class PokemonController {
             throw new Error('Could not cast Pokemon ID to number');
         }
         return this.pokemonService.findOne(idAsNumber);
+    }
+
+    @Post()
+    @ApiOperation({ summary: 'Create a pokemon' })
+    public createMon(@Body() createMonDto: CreatePokemonDto): PokemonDto {
+        return this.pokemonService.createMon(createMonDto);
+    }
+
+    @Delete(':id')
+    @ApiOperation({ summary: 'Remove a pokemon' })
+    removeMon(@Param('id') id: string) {
+        return this.pokemonService.deleteMon;
     }
 }

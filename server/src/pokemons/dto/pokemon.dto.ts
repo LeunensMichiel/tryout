@@ -25,3 +25,12 @@ export class PokemonDto {
     @ApiProperty()
     public base: PokemonBase;
 }
+
+export class CreatePokemonDto {
+    @ApiProperty()
+    public name: string;
+    @ApiProperty()
+    public type: string[];
+    @ApiProperty()
+    public base: PokemonBase;
+}
