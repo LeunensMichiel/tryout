@@ -1,0 +1,32 @@
+.card {
+  background-color: #f5f5f58b;
+  padding: 2rem 1.5rem;
+  border-radius: 2rem;
+
+  img {
+    width: 100%;
+    max-height: 15rem;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.card__body {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.pokemon-name {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.pokemon-nr {
+  font-weight: 500;
+  color: #5a5a5a;
+}
+
+.pokemon-types {
+  display: flex;
+  gap: 0.5rem;
+}

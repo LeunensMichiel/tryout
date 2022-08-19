@@ -1,7 +1,9 @@
 import { FC, useEffect, useState } from 'react';
-import { Page } from '../components';
+import { Card, Page } from '../components';
 import { API_URL } from '../config';
 import { Pokemon } from '../models';
+
+import './pokemonList.scss';
 
 export const PokemonList: FC = () => {
   const [pokemons, setPokemons] = useState<Array<Pokemon>>([]);
@@ -35,9 +37,11 @@ export const PokemonList: FC = () => {
 
   return (
     <Page>
-      {pokemons.map((pokemon) => (
-        <div key={pokemon.id}>{pokemon.name}</div>
-      ))}
+      <div className="list">
+        {pokemons.map((pokemon) => (
+          <Card key={pokemon.id} pokemon={pokemon} />
+        ))}
+      </div>
     </Page>
   );
 };
