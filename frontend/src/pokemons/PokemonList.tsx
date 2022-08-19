@@ -18,7 +18,7 @@ export const PokemonList: FC = () => {
           throw new Error(`Could not fetch pokemons`);
         }
 
-        let pokemons = await response.json();
+        const pokemons = await response.json();
         setPokemons(pokemons);
         setError(null);
       } catch (err) {
@@ -33,11 +33,10 @@ export const PokemonList: FC = () => {
     getPokemons();
   }, []);
 
-  console.log(pokemons);
   return (
     <Page>
       {pokemons.map((pokemon) => (
-        <div>{pokemon.name}</div>
+        <div key={pokemon.id}>{pokemon.name}</div>
       ))}
     </Page>
   );

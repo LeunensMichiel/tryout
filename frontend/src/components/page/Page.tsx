@@ -13,7 +13,12 @@ export const Page: FC<Props> = ({ children }) => {
     <Layout className="layout">
       <Header className="header">
         <nav className="navigation">
-          <img src={logo} style={{ width: '150px' }} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            style={{ width: '150px' }}
+            className="App-logo"
+            alt="logo"
+          />
         </nav>
       </Header>
       <Content style={{ height: '100%' }} className="container--page">
